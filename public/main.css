@@ -1,0 +1,141 @@
+/* Default styles */
+* {
+margin: 0;
+padding: 0;
+box-sizing: inherit;
+}
+.wrapper {
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+}
+@media screen and (max-width: 776px) {
+    .wrapper {
+        width: 100%;
+    }
+}
+html {
+    box-sizing: border-box;
+}
+body {
+    background-color: floralwhite;
+    color: rgb(156, 85, 24);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    overflow-x: hidden;
+}
+.burger:hover {
+    cursor: pointer;
+}
+.burger div {
+    height: 3px;
+    width: 25px;
+    margin: 5px;
+    background-color: whitesmoke;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+ul {
+    list-style-type: none;
+}
+img {
+    width: 25%;
+    display: block;
+    margin: auto;
+}
+/* Default.jsx styles */
+.content-wrapper {
+    margin: 0 auto;
+}
+.site-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10vh;
+    color: whitesmoke;
+}
+.subscribe {
+    padding: .5rem 0;
+}
+.subscribe input {
+    padding: .5rem .3rem;
+    font-size: 1rem;
+    margin-right: .3rem;
+    font-weight: 100;
+}
+.subscribe input:focus-visible {
+    outline: 2px solid lightblue;
+}
+.subscribe input:visited {
+    color: inherit;
+}
+.subscribe button {
+    font-size: 1rem;
+    padding: .5rem .5rem;
+    border: none;
+    background-color: #4ea671;
+    color: inherit;
+}
+.subscribe button:hover {
+    cursor: pointer;
+}
+.site-nav {
+    width: 100%;
+    background-color: #4ea69b;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: .6rem 0;
+    position: relative;
+}
+.nav-active {
+    transform: translateX(0%);
+}
+.site-nav ul {
+    /* display: flex;
+    gap: 1.3rem; */
+    position: absolute;
+    right: 0px;
+    height: 92vh;
+    width: 50%;
+    top:47px;
+    background-color: orange;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateX(100%);
+    transition: all 1s ease;
+}
+.nav-links li {
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 4.3rem 2rem;
+    opacity: 0;
+
+}
+/* End of default.jsx styles */
+
+/* Start of home page styles */
+.home-page {
+
+}
+.home-banner {
+    background: url('./images/breadcrudbg.jpg')center center/cover no-repeat;
+    height: 25rem;
+    margin-bottom: .3rem;
+}
+.newButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home-page-link {
+    display: inline-block;
+    padding: .8rem 1rem;
+    background-color: #4ea69b;
+    color: whitesmoke;
+}
