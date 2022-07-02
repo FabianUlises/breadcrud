@@ -7,7 +7,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "npm start": "nodemon index.js"
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
