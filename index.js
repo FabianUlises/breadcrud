@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const methodOverride = require('method-override');
+const mongoose = require('mongoose');
 
 // MIDDLEWARE
 app.set('views', __dirname + '/views');
@@ -11,6 +12,17 @@ app.engine('jsx', require('express-react-views').createEngine());
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
+
+
+
+// Connecting to mongoose and DB
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true}, 
+    () => { console.log('connected to mongo: ', process.env.MONGO_URI) 
+    }
+)
+
 
 // CONTROLLERS
 app.use('/breads', require('./routes/breads_router'));
@@ -25,4 +37,7 @@ app.get('*', (req, res) => {
     res.send('404');
 });
 
-module.exports = app;
+// Server Listening
+app.listen(process.env.PORT, () => {
+    console.log('I am awake!');
+});
