@@ -96,34 +96,28 @@ const deleteBread = (req, res) => {
 
 
 
-
-
-
+// breads.get('/', getAllBreadsShow)
+// breads.post('/', createBread)
 // Index route
-breads.get('/', getAllBreadsShow)
-
-
-// Create route
-breads.post('/', createBread)
-
-
-// New route
+breads
+  .route('/')
+  .get(getAllBreadsShow)
+  .post(createBread)
+// New route Show
 breads.get('/new',createBreadShow)
-
-
-
 // Show route
-breads.get('/:id', getBread);
-
-
-
+// breads.get('/:id', getBread);
+// Update
+// breads.put('/:id', updateBread);  
+// Delete
+// breads.delete('/:id', deleteBread);
+// Individual bread route
+breads
+  .route('/:id')
+  .get(getBread)
+  .put(updateBread)
+  .delete(deleteBread)
 // Edit route
 breads.get('/:id/edit', updateBreadShow);
-
-
-  // Update
-breads.put('/:id', updateBread);
-// Delete
-breads.delete('/:id', deleteBread);
 
 module.exports = breads;
