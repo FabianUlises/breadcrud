@@ -9,7 +9,10 @@ exports.getBakers = async (req, res) => {
 
         res.json(bakers)
     } catch (err) {
-        res.send(err);
+        res.status(404).json({
+            status: 'fail',
+            message: err
+        })
     }
 };
 
@@ -25,7 +28,10 @@ exports.getBaker =  async (req, res) => {
             baker: baker
         })
     } catch (err) {
-        res.send(err)
+        res.status(404).json({
+            status: 'fail',
+            message: err
+        })
     }
 };
 
@@ -34,7 +40,10 @@ exports.seedData = async (req, res) => {
         await Baker.insertMany(bakerSeedData);
         (res.redirect('/breads'));
     } catch (err) {
-        res.send(err);
+        res.status(404).json({
+            status: 'fail',
+            message: err
+        })
     }
 };
 
@@ -43,6 +52,9 @@ exports.deleteBaker =  async (req, res) => {
         await Baker.findByIdAndDelete(req.params.id) ;
         res.status(303).redirect('/breads')
     } catch (err) {
-        res.send(err);
+        res.status(400).json({
+            status: 'fail',
+            message: err
+        })
     }
 };

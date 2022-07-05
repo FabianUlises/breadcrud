@@ -14,7 +14,7 @@ router.get('/new',breadsController.createBreadShow)
 // Individual bread route
 router
   .route('/:id')
-  .get(breadsController.getBread)
+  .get(breadsController.getBreadShow)
   .put(breadsController.updateBread)
   .delete(breadsController.deleteBread)
 

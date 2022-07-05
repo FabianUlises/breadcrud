@@ -12,10 +12,28 @@ exports.getAllBreadsShow = async (req, res) => {
       title: 'BreadCrud'
     })
   } catch (err) {
-      res.status(404).send('not found')
+    res.status(404).json({
+        status: 'fail',
+        message: err
+    })
   }
 };
-  
+    
+exports.getBreadShow = async (req, res) => {
+  try {
+    const bread = await Bread.findById(req.params.id)
+      .populate('baker');
+    res.render('show', {
+      bread: bread
+    })
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: err
+    }) 
+  }
+};
+
 exports.createBread = async (req, res) => {
   try{
     if (!req.body.image) {
@@ -29,7 +47,10 @@ exports.createBread = async (req, res) => {
     await Bread.create(req.body)
     res.redirect('/breads')
   } catch (err) {
-      res.send('error404')
+    res.status(400).json({
+      status: 'fail',
+      messagE: 'Invalid data sent!'
+    });
   }
 };
 
@@ -40,33 +61,28 @@ exports.createBreadShow = async (req, res) => {
       bakers: bakers
     });
   } catch (err) {
-      res.send('error404')
-  }
-};
-  
-exports.getBread = async (req, res) => {
-  try {
-    const bread = await Bread.findById(req.params.id)
-      .populate('baker');
-    res.render('show', {
-      bread: bread
+    res.status(404).json({
+      status: 'fail',
+      message: err
     })
-  } catch (err) {
-      res.send('404')
   }
 };
 
+
 exports.updateBreadShow = async (req, res) => {
-    try {
-      const bread = await Bread.findById(req.params.id);
-      const bakers = await Baker.find();
-      res.render('edit', {
-        bread: bread,
-        bakers: bakers
-      })
-    } catch (err) {
-        res.json(err);
-    }
+  try {
+    const bread = await Bread.findById(req.params.id);
+    const bakers = await Baker.find();
+    res.render('edit', {
+      bread: bread,
+      bakers: bakers
+    })
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: err
+    })
+  }
 };
 
 exports.updateBread = async (req, res) => {
@@ -79,7 +95,10 @@ exports.updateBread = async (req, res) => {
     await Bread.findByIdAndUpdate(req.params.id, req.body, { new: true })
     res.redirect(`/breads/${req.params.id}`);
   } catch (err) {
-      res.send(err)
+    res.status(400).json({
+      status: 'fail',
+      messagE: 'Invalid data sent!'
+    });
   }
 };
 
@@ -88,6 +107,9 @@ exports.deleteBread = async (req, res) => {
     await Bread.findByIdAndDelete(req.params.id)
     res.status(303).redirect('/breads');
   } catch (err) {
-      res.send('error404')
+    res.status(400).json({
+      status: 'fail',
+      message: err
+    })
   }        
 };
