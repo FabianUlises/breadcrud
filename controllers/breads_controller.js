@@ -111,5 +111,5 @@ exports.deleteBread = async (req, res) => {
       status: 'fail',
       message: err
     })
-  }        
+  }
 };

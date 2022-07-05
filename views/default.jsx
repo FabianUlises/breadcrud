@@ -1,15 +1,11 @@
 const React = require('react');
 
 const Default = (html) => {
-
-    const navSlider = () => {
-        console.log('menu pressed')
-    }
     return(
         <html>
             <head>
                 <link rel="stylesheet" href="/main.css" />
-                <title>{html.title || 'Default'}</title>
+                <title>BreadCrud</title>
             </head>
             <body>
                 {/* Start of header */}
@@ -32,7 +28,7 @@ const Default = (html) => {
                                 <li><a href="#">About</a></li>
                                 <li><a href="#">Contact Me</a></li>
                             </ul>
-                            <div className="burger" onClick={() => {navSlider()}}>
+                            <div className="burger">
                                 <div className="btn1"></div>
                                 <div className="btn2"></div>
                                 <div className="btn3"></div>
@@ -49,9 +45,6 @@ const Default = (html) => {
                         {html.children}
                     </div>
                 </div>
-                <script>
-                    console.log('hello')
-                </script>
             </body>
         </html>
     )

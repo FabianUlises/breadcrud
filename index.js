@@ -30,8 +30,7 @@ app.use('/bakers', require('./routes/bakers_router'));
 
 // ROUTES
 app.get('/', (req, res) => {
-    // res.send('Welcome to an App about Breads');
-    res.redirect('/breads')
+    res.status(200).render('welcomePage')
 });
 app.get('*', (req, res) => {
     res.send('404');
