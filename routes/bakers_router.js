@@ -1,45 +1,17 @@
 const express = require('express');
-const baker = express.Router();
-const Baker = require('../models/baker');
-const bakerSeedData = require('../models/baker_seed.js');
-
-// Get Index
-baker.get('/', (req, res) => {
-    Baker.find()
-        .populate('breads')
-        .then(foundBakers => {
-            res.send(foundBakers)
-        })
-        .catch(err => {
-            console.log('err: ', err)
-        })
-})
-
-// Show: 
-baker.get('/:id', (req, res) => {
-    Baker.findById(req.params.id)
-        .populate({
-            path: 'breads',
-            options: { limit: 2 }
-        })
-        .then(foundBaker => {
-            res.render('bakerShow', {
-                baker: foundBaker
-            })
-        })
-})
+const router = express.Router();
+const bakersController = require('./../controllers/bakers_controller')
 
 
-baker.get('/data/seed', (req, res) => {
-    Baker.insertMany(bakerSeedData)
-        .then(res.redirect('/breads'))
-});
-// delete
-baker.delete('/:id', (req, res) => {
-    Baker.findByIdAndDelete(req.params.id) 
-      .then(deletedBaker => { 
-        res.status(303).redirect('/breads')
-      })
-})
+// Get all bakers
+router.get('/', bakersController.getBakers)
 
-module.exports = baker;
+// Individual Baker 
+router.route('/:id')
+    .get(bakersController.getBaker)
+    .delete(bakersController.deleteBaker)
+    
+// Seed data
+router.get('/data/seed', bakersController.seedData);
+
+module.exports = router;

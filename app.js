@@ -1,8 +1,8 @@
+// DEPENDENCIES
 require('dotenv').config();
 const express = require('express');
 const app = express();
 const methodOverride = require('method-override');
-
 
 // MIDDLEWARE
 app.set('views', __dirname + '/views');
@@ -12,11 +12,10 @@ app.use(methodOverride('_method'));
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 
-
-
 // CONTROLLERS
 app.use('/breads', require('./routes/breads_router'));
 app.use('/bakers', require('./routes/bakers_router'));
+
 // ROUTES
 app.get('/', (req, res) => {
     // res.send('Welcome to an App about Breads');
@@ -25,4 +24,5 @@ app.get('/', (req, res) => {
 app.get('*', (req, res) => {
     res.send('404');
 });
+
 module.exports = app;
