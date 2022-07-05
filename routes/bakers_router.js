@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const bakersController = require('./../controllers/bakers_controller')
 
-
 // Get all bakers
 router.get('/', bakersController.getBakers)
 
