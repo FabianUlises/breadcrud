@@ -1,40 +1,50 @@
 const React = require('react');
 const Default = require('./default');
-const Index = ({breads, bakers, title}) => {
+const Index = ({breads, bakers}) => {
     return(
-        <Default title={title}>
+        <Default>
             <main className='home-page'>
+                {/* Banner for home page */}
                 <div className="home-banner">
                 </div>
+                {/* Container for button */}
                 <div className="newButton">
                     <a className='home-page-link' href="/breads/new">Add a new bread</a>
                 </div>
-                <h3>Bakers</h3>
-                    <ul>
-                        {
-                            bakers.map((baker, i) => {
+                {/* Container for Breads and Bakers */}
+                <div className="home-content-container">
+                    {/* Bakers */}
+                    <div className="bakers-container">
+                        <h3>Bakers</h3>
+                        <ul>
+                            {/* Mapping through breads db */}
+                            {bakers.map((baker, i) => {
                                 return(
-                                    <li key={baker._id}>
+                                    <li className='item baker-item' key={baker._id}>
                                         <a href={`/bakers/${baker._id}`}>{baker.name}</a>
                                     </li>
+                                    )
+                                })
+                            }
+                        </ul>
+                    </div>
+                    {/* Breads */}
+                    <div className="breads-container">
+                        <h3>Breads</h3>
+                        <ul>
+                            {/* Mapping through breads db */}
+                            {breads.map((bread, index) => {
+                                return(
+                                    <li className='item bread-item' key={bread._id}>
+                                        <a href={`/breads/${bread._id}`}>{bread.name}</a>
+                                    </li>
                                 )
-                            })
-                        }
-                    </ul>
-                <ul>
-                {breads.map((bread, index) => {
-                    return(
-                        
-                            <li key={bread._id}>
-                                <a href={`/breads/${bread._id}`}>{bread.name}</a>
-                            </li>
-                        
-                        )
-                    })}
-                </ul>
+                            })}
+                        </ul>
+                    </div>
+                </div>
+                {/* End of container */}
             </main>
-
-
         </Default>
     )
 }

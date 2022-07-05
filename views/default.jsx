@@ -23,11 +23,11 @@ const Default = (html) => {
                                 <h1><a href="/breads">BreadCRUD</a></h1>
                             </div>
                             {/* Start of nav links */}
-                            <ul className='nav-links'>
+                            {/* <ul className='nav-links'>
                                 <li><a href="#">Home</a></li>
                                 <li><a href="#">About</a></li>
                                 <li><a href="#">Contact Me</a></li>
-                            </ul>
+                            </ul> */}
                             <div className="burger">
                                 <div className="btn1"></div>
                                 <div className="btn2"></div>
@@ -37,7 +37,6 @@ const Default = (html) => {
                     {/* End of nav */}
                 </header>
                 {/* End of header */}
-
 
                 {/* Site wrapper */}
                 <div className="wrapper">
