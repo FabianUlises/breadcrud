@@ -12,7 +12,7 @@ exports.getAllBreadsShow = async (req, res) => {
       title: 'BreadCrud'
     })
   } catch (err) {
-    res.status(404).send('not found')
+      res.status(404).send('not found')
   }
 };
   
@@ -29,7 +29,7 @@ exports.createBread = async (req, res) => {
     await Bread.create(req.body)
     res.redirect('/breads')
   } catch (err) {
-    res.send('error404')
+      res.send('error404')
   }
 };
 
@@ -40,19 +40,19 @@ exports.createBreadShow = async (req, res) => {
       bakers: bakers
     });
   } catch (err) {
-    res.send('error404')
+      res.send('error404')
   }
 };
   
 exports.getBread = async (req, res) => {
   try {
-    const bread = await Bread.findById(req.params.id);
-    bread.populate('baker');
+    const bread = await Bread.findById(req.params.id)
+      .populate('baker');
     res.render('show', {
       bread: bread
     })
   } catch (err) {
-    res.send('404')
+      res.send('404')
   }
 };
 
@@ -65,7 +65,7 @@ exports.updateBreadShow = async (req, res) => {
         bakers: bakers
       })
     } catch (err) {
-      res.json(err);
+        res.json(err);
     }
 };
 
@@ -79,7 +79,7 @@ exports.updateBread = async (req, res) => {
     await Bread.findByIdAndUpdate(req.params.id, req.body, { new: true })
     res.redirect(`/breads/${req.params.id}`);
   } catch (err) {
-    res.send(err)
+      res.send(err)
   }
 };
 
@@ -88,6 +88,6 @@ exports.deleteBread = async (req, res) => {
     await Bread.findByIdAndDelete(req.params.id)
     res.status(303).redirect('/breads');
   } catch (err) {
-    res.send('error404')
+      res.send('error404')
   }        
 };
