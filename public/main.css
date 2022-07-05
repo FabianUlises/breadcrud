@@ -1,3 +1,12 @@
+:root {
+    --background-color: floralwhite;
+    --secondary-main-color: #4ea69b;
+
+    --color-primary: rgb(156, 85, 24);
+    --color-secondary: whitesmoke; 
+
+    --form-outline: lightblue;
+}
 /* Default styles */
 * {
 margin: 0;
@@ -18,8 +27,8 @@ html {
     box-sizing: border-box;
 }
 body {
-    background-color: floralwhite;
-    color: rgb(156, 85, 24);
+    background-color: var(--background-color);
+    color: var(--color-primary);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     overflow-x: hidden;
 }
@@ -30,7 +39,7 @@ body {
     height: 3px;
     width: 25px;
     margin: 5px;
-    background-color: whitesmoke;
+    background-color: var(--color-secondary);
 }
 a {
     text-decoration: none;
@@ -55,7 +64,7 @@ img {
     justify-content: center;
     align-items: center;
     margin-bottom: 10vh;
-    color: whitesmoke;
+    color: var(--color-secondary);
 }
 .subscribe {
     padding: .5rem 0;
@@ -67,7 +76,7 @@ img {
     font-weight: 100;
 }
 input:focus-visible {
-    outline: 2px solid lightblue;
+    outline: 2px solid var(--form-outline);
 }
 input:visited {
     color: inherit;
@@ -84,7 +93,7 @@ input:visited {
 }
 .site-nav {
     width: 100%;
-    background-color: #4ea69b;
+    background-color: var(--secondary-main-color);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -122,8 +131,8 @@ input:visited {
 .home-page-link {
     display: inline-block;
     padding: .8rem 1rem;
-    background-color: #4ea69b;
-    color: whitesmoke;
+    background-color: var(--secondary-main-color);
+    color: var(--color-secondary);
 }
 .home-content-container {
     display: flex;
@@ -136,7 +145,7 @@ input:visited {
 }
 .home-content-container .item {
     margin-bottom: .4rem;
-    color: #4ea69b;
+    color: var(--secondary-main-color);
 }
 .item:hover {
     color: red;
@@ -152,7 +161,7 @@ input:visited {
 }
 .bread-container h2 {
     letter-spacing: 1px;
-    color:#4ea69b
+    color:var(--secondary-main-color)
 }
 .bread-container P {
     font-size: .8rem;
@@ -176,12 +185,12 @@ input:visited {
 }
 .bread-details a button:hover, .bread-details input[type='submit']:hover {
     cursor: pointer;
-    background-color: #4ea69b;
+    background-color: var(--secondary-main-color);
 }
 /* End of styles for breads container */
 /* Form page styles */
 .color-highlight {
-    color: #4ea69b;
+    color: var(--secondary-main-color);
 }
 .form-container {
     display: flex;
@@ -204,9 +213,9 @@ input:visited {
     padding: .2rem;
 }
 .form-group input[type='submit'] {
-    background-color: #4ea69b ;
+    background-color: var(--secondary-main-color);
     border: none;
-    color: whitesmoke;
+    color: var(--color-secondary);
     padding: .3rem .8rem;
     transition: all 200ms ease;
 }
@@ -217,3 +226,11 @@ input:visited {
 }
 
 /* End of form page styles */
+/* Baker page */
+.baker-container h2 {
+    margin-bottom: .4rem;
+}
+.baker-container h3 {
+    margin-bottom: .2rem;
+}
+/* End of baker page styles */
