@@ -7,43 +7,38 @@ const Default = require('./default')
 function New ({ bakers }) {
     return ( 
       <Default>
-        <h2>Add a new bread</h2>
-        <div className="backButton">
-          <a href="/breads"><button>Go back to the index</button></a>
+        <div className="wrapper form-container">
+          <h2>Add a new bread</h2>
+          <form action='/breads' method='POST'>
+            <div className="form-group">
+              <label htmlFor="name">Name</label>
+              <input type="text" name="name" id="name" required />
+            </div>
+            <div className="form-group">
+            <label htmlFor="image">Image</label>
+            <input type="text" name="image" id="image" />
+            </div>
+            <div className="form-group">
+            <label htmlFor="baker">Baker</label>
+            <select name="baker" id="baker">
+              {bakers.map(baker => {
+                return(
+                  <option value={baker.id} key={baker.id}>
+                    {baker.name}
+                  </option>
+                )
+              })}
+              </select>
+            </div>
+            <div className="form-group">
+              <label htmlFor="hasGluten"><span className='color-highlight'>Has Gluten?</span></label>
+              <input type="checkbox" name="hasGluten" id="hasGluten" defaultChecked />
+            </div>
+            <div className="form-group">
+            <input type="submit" />
+            </div>
+          </form>
         </div>
-        <form action='/breads' method='POST' >
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            required
-          />
-          <label htmlFor="image">Image</label>
-          <input
-            type="text"
-            name="image"
-            id="image"/>
-          <label htmlFor="baker">Baker</label>
-          <select name="baker" id="baker">
-            {bakers.map(baker => {
-              return(
-                <option value={baker.id} key={baker.id}>
-                  {baker.name}
-                </option>
-              )
-            })}
-          </select>
-          <label htmlFor="hasGluten">Has Gluten?</label>
-          <input
-            type="checkbox"
-            name="hasGluten"
-            id="hasGluten"
-            defaultChecked
-          />
-          <br />
-          <input type="submit"/>
-        </form>
       </Default>
     )
 }

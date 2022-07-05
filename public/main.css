@@ -66,10 +66,10 @@ img {
     margin-right: .3rem;
     font-weight: 100;
 }
-.subscribe input:focus-visible {
+input:focus-visible {
     outline: 2px solid lightblue;
 }
-.subscribe input:visited {
+input:visited {
     color: inherit;
 }
 .subscribe button {
@@ -110,6 +110,14 @@ img {
     justify-content: center;
     align-items: center;
     margin-bottom: 1.6rem;
+}
+.newButton a {
+    transition: all 200ms ease;
+}
+.newButton a:hover {
+    cursor: pointer;
+    background-color: #4ea69c5e;
+    color: darkcyan;
 }
 .home-page-link {
     display: inline-block;
@@ -163,7 +171,7 @@ img {
     padding: .8rem 1.2rem;
     border: none;
     font-size: 1rem;
-    border-radius: 16px;
+    border-radius: 8px;
     transition: all 250ms ease;
 }
 .bread-details a button:hover, .bread-details input[type='submit']:hover {
@@ -171,3 +179,41 @@ img {
     background-color: #4ea69b;
 }
 /* End of styles for breads container */
+/* Form page styles */
+.color-highlight {
+    color: #4ea69b;
+}
+.form-container {
+    display: flex;
+    flex-direction: column;
+    width:  fit-content;
+    gap: .8rem;
+}
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+}
+.form-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+.form-group input {
+    padding: .2rem;
+}
+.form-group input[type='submit'] {
+    background-color: #4ea69b ;
+    border: none;
+    color: whitesmoke;
+    padding: .3rem .8rem;
+    transition: all 200ms ease;
+}
+.form-group input[type='submit']:hover {
+    cursor: pointer;
+    background-color: #4ea69c5e;
+    color: darkcyan;
+}
+
+/* End of form page styles */
