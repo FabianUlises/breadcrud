@@ -3,8 +3,7 @@ const breads = express.Router();
 const Bread = require('../models/bread');
 const Baker = require('../models/baker');
 
-// Index route
-breads.get('/', async (req, res) => {
+const getAllBreadsShow = async (req, res) => {
   const foundBakers = await Baker.find().lean();
   const foundBreads = await Bread.find().limit(2).lean();
   res.render('index', {
@@ -12,11 +11,9 @@ breads.get('/', async (req, res) => {
     bakers: foundBakers,
     title: 'Index Page'
   })
-})
+}
 
-
-// Create route
-breads.post('/', (req, res) => {
+const createBread =  (req, res) => {
   try{
     if (!req.body.image) {
       req.body.image = undefined
@@ -32,12 +29,8 @@ breads.post('/', (req, res) => {
     res.send('error404')
   }
 
-})
-
-
-
-// New route
-breads.get('/new', (req, res) => {
+}
+const createBreadShow =  (req, res) => {
   Baker.find()
     .then(foundBakers => {
       res.render('new', {
@@ -45,12 +38,9 @@ breads.get('/new', (req, res) => {
       });
     })
   
-})
+}
 
-
-
-// Show route
-breads.get('/:id', (req, res) => {
+const getBread =  (req, res) => {
   Bread.findById(req.params.id)
     .populate('baker')
     .then(foundBread => {
@@ -69,12 +59,8 @@ breads.get('/:id', (req, res) => {
   // } catch {
   //     res.send('404');
   // }
-});
-
-
-
-// Edit route
-breads.get('/:id/edit', (req, res) => {
+}
+const updateBreadShow =  (req, res) => {
   Baker.find()
     .then(foundBakers => {
       Bread.findById(req.params.id)
@@ -86,11 +72,8 @@ breads.get('/:id/edit', (req, res) => {
           })
         })
     })
-});
-
-
-  // Update
-breads.put('/:id', (req, res) => {
+}
+const updateBread = (req, res) => {
   if(req.body.hasGluten === 'on'){
     req.body.hasGluten = true
   } else {
@@ -102,13 +85,45 @@ breads.put('/:id', (req, res) => {
       console.log(updatedBread);
       res.redirect(`/breads/${req.params.id}`);
     });
-});
-// Delete
-breads.delete('/:id', (req, res) => {
+}
+const deleteBread = (req, res) => {
   Bread.findByIdAndDelete(req.params.id)
     .then(deletedBread => {
       res.status(303).redirect('/breads');
     });
-});
+}
+
+
+
+
+
+
+
+// Index route
+breads.get('/', getAllBreadsShow)
+
+
+// Create route
+breads.post('/', createBread)
+
+
+// New route
+breads.get('/new',createBreadShow)
+
+
+
+// Show route
+breads.get('/:id', getBread);
+
+
+
+// Edit route
+breads.get('/:id/edit', updateBreadShow);
+
+
+  // Update
+breads.put('/:id', updateBread);
+// Delete
+breads.delete('/:id', deleteBread);
 
 module.exports = breads;
