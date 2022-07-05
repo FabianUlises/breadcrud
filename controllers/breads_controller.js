@@ -1,89 +1,93 @@
 const Bread = require('../models/bread');
 const Baker = require('../models/baker');
+
+// Controllers
 exports.getAllBreadsShow = async (req, res) => {
+  try {
     const foundBakers = await Baker.find().lean();
     const foundBreads = await Bread.find().limit(2).lean();
-    res.render('index', {
+    res.status(200).render('index', {
       breads: foundBreads,
       bakers: foundBakers,
-      title: 'Index Page'
+      title: 'BreadCrud'
     })
-}
+  } catch (err) {
+    res.status(404).send('not found')
+  }
+};
   
-exports.createBread =  (req, res) => {
-    try{
-      if (!req.body.image) {
-        req.body.image = undefined
-      }
-      if(req.body.hasGluten === 'on') {
-        req.body.hasGluten = true
-      } else {
-        req.body.hasGluten = false
-      }
-      Bread.create(req.body)
-      res.redirect('/breads')
-    } catch {
-      res.send('error404')
+exports.createBread = async (req, res) => {
+  try{
+    if (!req.body.image) {
+      req.body.image = undefined
     }
-}
-exports.createBreadShow =  (req, res) => {
-    Baker.find()
-      .then(foundBakers => {
-        res.render('new', {
-          bakers: foundBakers
-        });
-      })
-}
+    if(req.body.hasGluten === 'on') {
+      req.body.hasGluten = true
+    } else {
+      req.body.hasGluten = false
+    }
+    await Bread.create(req.body)
+    res.redirect('/breads')
+  } catch (err) {
+    res.send('error404')
+  }
+};
+
+exports.createBreadShow = async (req, res) => {
+  try {
+    const bakers = await Baker.find();
+    res.render('new', {
+      bakers: bakers
+    });
+  } catch (err) {
+    res.send('error404')
+  }
+};
   
-exports.getBread =  (req, res) => {
-    Bread.findById(req.params.id)
-      .populate('baker')
-      .then(foundBread => {
-        res.render('show', {
-          bread: foundBread
-        })
+exports.getBread = async (req, res) => {
+  try {
+    const bread = await Bread.findById(req.params.id);
+    bread.populate('baker');
+    res.render('show', {
+      bread: bread
+    })
+  } catch (err) {
+    res.send('404')
+  }
+};
+
+exports.updateBreadShow = async (req, res) => {
+    try {
+      const bread = await Bread.findById(req.params.id);
+      const bakers = await Baker.find();
+      res.render('edit', {
+        bread: bread,
+        bakers: bakers
       })
-      .catch(err => {
-        res.send('404')
-      })
-    // try{
-    //     res.render('show', {
-    //         bread: Bread[req.params.arrayIndex],
-    //         index: req.params.arrayIndex
-    //     });
-    // } catch {
-    //     res.send('404');
-    // }
-}
-exports.updateBreadShow =  (req, res) => {
-    Baker.find()
-      .then(foundBakers => {
-        Bread.findById(req.params.id)
-          .then(foundBread => {
-            console.log(foundBread)
-            res.render('edit', {
-              bread: foundBread,
-              bakers: foundBakers
-            })
-          })
-      })
-}
-exports.updateBread = (req, res) => {
+    } catch (err) {
+      res.json(err);
+    }
+};
+
+exports.updateBread = async (req, res) => {
+  try {
     if(req.body.hasGluten === 'on'){
       req.body.hasGluten = true
     } else {
       req.body.hasGluten = false
     }
-  
-    Bread.findByIdAndUpdate(req.params.id, req.body, { new: true })
-      .then(updatedBread => {
-        console.log(updatedBread);
-        res.redirect(`/breads/${req.params.id}`);
-      });
-}
-exports.deleteBread = (req, res) => {
-    Bread.findByIdAndDelete(req.params.id)
-      .then(deletedBread => {
-        res.status(303).redirect('/breads');
-      });
-}
+    await Bread.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    res.redirect(`/breads/${req.params.id}`);
+  } catch (err) {
+    res.send(err)
+  }
+};
+
+exports.deleteBread = async (req, res) => {
+  try {
+    await Bread.findByIdAndDelete(req.params.id)
+    res.status(303).redirect('/breads');
+  } catch (err) {
+    res.send('error404')
+  }        
+};
