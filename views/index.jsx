@@ -1,5 +1,5 @@
 const React = require('react');
-const Default = require('./layouts/default');
+const Default = require('./default');
 const Index = ({breads, bakers, title}) => {
     return(
         <Default title={title}>
