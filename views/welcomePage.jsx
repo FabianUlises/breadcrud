@@ -23,9 +23,9 @@ const welcomePage = () => {
                             <ul>
                                 <li>NodeJS<img src='/images/nodejs.png' height="35px" /></li>
                                 <li>ExpressJS<img src='/images/expressjs.png' height="35px" /></li>
+                                <li>Express React<img src='/images/expressjs.png' height="35px" /></li>
                                 <li>Mongoose</li>
                                 <li>MongoDB<img src='/images/mongodb.png' height="35px" /></li>
-                                <li>Express React<img src='/images/expressjs.png' height="35px" /></li>
                                 <li>CSS<img src='/images/css.png' height="35px" /></li>
                             </ul>
                         </div>
