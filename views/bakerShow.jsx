@@ -9,8 +9,8 @@ function Show ({baker}) {
           <p>{baker.name} has been baking with us since {baker.startDate}</p>
           <p>About {baker.name}: {baker.bio}</p>
           <br />
-          <h3>Breads {baker.name} has baked</h3>
-          <ul className='color-highlight'>
+          <h3 className='bakers-bread'>Breads {baker.name} has baked</h3>
+          <ul className='color-highlight bakers-bread'>
             {
               baker.breads.map((bread) => {
                 return(

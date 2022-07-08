@@ -13,24 +13,23 @@ margin: 0;
 padding: 0;
 box-sizing: inherit;
 }
-.wrapper {
-    width: 75%;
-    margin: 0 auto;
-    text-align: center;
-}
-@media screen and (max-width: 776px) {
-    .wrapper {
-        width: 100%;
-    }
-}
 html {
     box-sizing: border-box;
+    font-size: 100%;
 }
 body {
     background-color: var(--background-color);
     color: var(--color-primary);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     overflow-x: hidden;
+    font-size: 62.5%;
+}
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+.flex {
+    display: flex;
 }
 .burger:hover {
     cursor: pointer;
@@ -49,29 +48,26 @@ ul {
     list-style-type: none;
 }
 img {
-    width: 25%;
+    width: 45%;
     display: block;
     margin: auto;
 }
-/* Default.jsx styles */
-.content-wrapper {
-    margin: 0 auto;
-}
+/* Default js styles */
 .site-header {
     width: 100%;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: 10vh;
     color: var(--color-secondary);
+    font-size: 1.3rem;
 }
-.subscribe {
+
+.header-subscribe {
     padding: .5rem 0;
 }
-.subscribe input {
-    padding: .5rem .3rem;
-    font-size: 1rem;
+.header-subscribe input {
+    padding: .3rem .2rem;
     margin-right: .3rem;
     font-weight: 100;
 }
@@ -81,20 +77,19 @@ input:focus-visible {
 input:visited {
     color: inherit;
 }
-.subscribe button {
+.header-subscribe button {
     font-size: 1rem;
-    padding: .5rem .5rem;
+    padding: .3rem .2rem;
     border: none;
     background-color: #4ea671;
     color: inherit;
 }
-.subscribe button:hover {
+.header-subscribe button:hover {
     cursor: pointer;
 }
 .site-nav {
     width: 100%;
     background-color: var(--secondary-main-color);
-    display: flex;
     justify-content: space-around;
     align-items: center;
     padding: .6rem 0;
@@ -103,19 +98,13 @@ input:visited {
 .nav-active {
     transform: translateX(0%);
 }
-/* End of default.jsx styles */
-
 /* Start of home page styles */
-.home-page {
-
-}
 .home-banner {
     background: url('./images/breadcrudbg.jpg')center center/cover no-repeat;
     height: 25rem;
     margin-bottom: 1.6rem;
 }
 .newButton {
-    display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 1.6rem;
@@ -133,12 +122,14 @@ input:visited {
     padding: .8rem 1rem;
     background-color: var(--secondary-main-color);
     color: var(--color-secondary);
+    font-size: 1rem;
 }
 .home-content-container {
-    display: flex;
+    font-size: 1.3rem;
     justify-content: center;
     gap: 2rem;
     padding-bottom: .8rem;
+    text-align: center;
 }
 .home-content-container h3 {
     margin-bottom: 1.6rem;
@@ -150,44 +141,47 @@ input:visited {
 .item:hover {
     color: red;
 }
+/* media query for root page */
+@media screen and (min-width: 776px) {
+    .wrapper {
+        width: 75%;
+        margin: 0 auto
+    }
+}
 /* Styles for breads-container */
 .bread-container {
+    font-size: 1.3rem;
     width: fit-content;
-    margin: 0 auto;
+    margin: -3rem  auto;
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
     padding: .8rem;
+    text-align: center;
+    text-transform: capitalize;
 }
 .bread-container h2 {
     letter-spacing: 1px;
     color:var(--secondary-main-color)
 }
-.bread-container P {
-    font-size: .8rem;
-}
-.bread-container img {
-    width: 50%;
-}
-.bread-details {
-    line-height: 22px;
-}
 .bread-details p {
     margin-bottom: 1.6rem;
 }
 .bread-details a button, .bread-details input[type='submit'] {
-    background-color: transparent;
+    background-color: var(--secondary-main-color);
     padding: .8rem 1.2rem;
     border: none;
     font-size: 1rem;
-    border-radius: 8px;
+    border-radius: 2px;
     transition: all 250ms ease;
+    margin-bottom: .8rem;
 }
 .bread-details a button:hover, .bread-details input[type='submit']:hover {
     cursor: pointer;
-    background-color: var(--secondary-main-color);
+    background-color: #4ea69c71;
 }
 /* End of styles for breads container */
+
 /* Form page styles */
 .color-highlight {
     color: var(--secondary-main-color);
@@ -197,6 +191,8 @@ input:visited {
     flex-direction: column;
     width:  fit-content;
     gap: .8rem;
+    font-size: 1.3rem;
+    text-align: center;
 }
 .form-container form {
     display: flex;
@@ -213,9 +209,9 @@ input:visited {
     padding: .2rem;
 }
 .form-group input[type='submit'] {
-    background-color: var(--secondary-main-color);
+    background-color: var(--color-secondary);;
     border: none;
-    color: var(--color-secondary);
+    color: var(--secondary-main-color) ;
     padding: .3rem .8rem;
     transition: all 200ms ease;
 }
@@ -227,10 +223,26 @@ input:visited {
 
 /* End of form page styles */
 /* Baker page */
+.baker-container {
+    font-size: 1.3rem;
+}
 .baker-container h2 {
     margin-bottom: .4rem;
 }
 .baker-container h3 {
     margin-bottom: .2rem;
 }
-/* End of baker page styles */
+.bakers-bread {
+    text-align: center;
+}
+/* Error page styles */
+.err-container {
+    font-size: 1.3rem;
+}
+.err-container a {
+    background-color: #4ea671;
+    color: whitesmoke;
+    display: inline-block;
+    margin-top: 1.3rem;
+    padding: .8rem 1.4rem;
+}

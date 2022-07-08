@@ -4,20 +4,24 @@ const Default = (html) => {
     return(
         <html>
             <head>
+                <metadata charset="utf-8" />
+                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                <meta name="description" content="A sandboxCRUD app meant to demonstrate CRUD operations."></meta>
+                <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
                 <link rel="stylesheet" href="/main.css" />
                 <title>BreadCrud</title>
             </head>
             <body>
                 {/* Start of header */}
-                <header className='site-header'>
+                <header className='site-header flex'>
                     {/* Start of dummy subscribe section */}
-                    <div className="subscribe">
+                    <div className="header-subscribe">
                         <input type="email" placeholder='dummy form' required />
                         <button>Subscribe</button>
                     </div>
                     {/* End of subscription section */}
                     {/* Start of nav */}
-                        <nav className='site-nav wrapper'>
+                        <nav className='site-nav flex'>
                             {/* Start of nav logo container */}
                             <div className="nav-logo">
                                 <h1><a href="/breads">BreadCRUD</a></h1>
@@ -40,9 +44,9 @@ const Default = (html) => {
 
                 {/* Site wrapper */}
                 <div className="wrapper">
-                    <div className="content-wrapper wrapper">
+                    {/* <div className="content-wrapper wrapper"> */}
                         {html.children}
-                    </div>
+                    {/* </div> */}
                 </div>
             </body>
         </html>

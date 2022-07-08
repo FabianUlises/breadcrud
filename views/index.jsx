@@ -8,11 +8,11 @@ const Index = ({breads, bakers}) => {
                 <div className="home-banner">
                 </div>
                 {/* Container for button */}
-                <div className="newButton">
+                <div className="newButton flex">
                     <a className='home-page-link' href="/breads/new">Add a new bread</a>
                 </div>
                 {/* Container for Breads and Bakers */}
-                <div className="home-content-container">
+                <div className="home-content-container flex">
                     {/* Bakers */}
                     <div className="bakers-container">
                         <h3>Bakers</h3>
