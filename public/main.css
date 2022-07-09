@@ -44,13 +44,14 @@ a {
     text-decoration: none;
     color: inherit;
 }
+a:visited {
+    color: inherit;
+}
 ul {
     list-style-type: none;
 }
 img {
-    width: 45%;
     display: block;
-    margin: auto;
 }
 /* Default js styles */
 .site-header {
@@ -58,7 +59,7 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10vh;
+    margin-bottom: 5vh;
     color: var(--color-secondary);
     font-size: 1.3rem;
 }
@@ -111,6 +112,7 @@ input:visited {
 }
 .newButton a {
     transition: all 200ms ease;
+    color: whitesmoke;
 }
 .newButton a:hover {
     cursor: pointer;
@@ -130,6 +132,7 @@ input:visited {
     gap: 2rem;
     padding-bottom: .8rem;
     text-align: center;
+    align-items: flex-start;
 }
 .home-content-container h3 {
     margin-bottom: 1.6rem;
@@ -149,32 +152,46 @@ input:visited {
     }
 }
 /* Styles for breads-container */
-.bread-container {
-    font-size: 1.3rem;
-    width: fit-content;
-    margin: -3rem  auto;
+.bread-container img {
+
+}
+.breads-container {
     display: flex;
     flex-direction: column;
-    gap: 1.6rem;
-    padding: .8rem;
+    justify-content: center;
+    align-items: center;
+}
+.bread-container {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
     text-align: center;
-    text-transform: capitalize;
+    padding: .8rem;
+    gap: 1.6rem;
 }
 .bread-container h2 {
     letter-spacing: 1px;
-    color:var(--secondary-main-color)
+    color:var(--secondary-main-color);
+    text-transform: capitalize;
 }
 .bread-details p {
-    margin-bottom: 1.6rem;
+    width: 50%;
+    margin: 0 auto .5rem auto;
+    font-size: 1rem;
+
 }
 .bread-details a button, .bread-details input[type='submit'] {
     background-color: var(--secondary-main-color);
-    padding: .8rem 1.2rem;
+    padding: .5rem .8rem;
     border: none;
     font-size: 1rem;
     border-radius: 2px;
     transition: all 250ms ease;
     margin-bottom: .8rem;
+    color: whitesmoke;
 }
 .bread-details a button:hover, .bread-details input[type='submit']:hover {
     cursor: pointer;
@@ -209,16 +226,16 @@ input:visited {
     padding: .2rem;
 }
 .form-group input[type='submit'] {
-    background-color: var(--color-secondary);;
+    background-color: var(--secondary-main-color);
     border: none;
-    color: var(--secondary-main-color) ;
-    padding: .3rem .8rem;
+    color: whitesmoke;
+    padding: .5rem .8rem;
     transition: all 200ms ease;
 }
 .form-group input[type='submit']:hover {
     cursor: pointer;
-    background-color: #4ea69c5e;
-    color: darkcyan;
+    background-color: #4ea69c71;
+    color: white;
 }
 
 /* End of form page styles */

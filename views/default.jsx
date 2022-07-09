@@ -43,7 +43,7 @@ const Default = (html) => {
                 {/* End of header */}
 
                 {/* Site wrapper */}
-                <div className="wrapper">
+                <div>
                     {/* <div className="content-wrapper wrapper"> */}
                         {html.children}
                     {/* </div> */}

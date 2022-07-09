@@ -6,7 +6,7 @@ const Index = () => {
             <div class="err-container">
                 <div class="err-msg">
                     <h3>Oops something went wrong, feel free to redirect back to the home page</h3>
-                    <a href="/">Go Back</a>
+                    <a href="/breads">Go Back</a>
                 </div>
             </div>
         </Default>

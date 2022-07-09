@@ -3,7 +3,7 @@ const Default = require('./default');
 const Index = ({breads, bakers}) => {
     return(
         <Default>
-            <main className='home-page'>
+            <main className='home-page wrapper'>
                 {/* Banner for home page */}
                 <div className="home-banner">
                 </div>
