@@ -2,7 +2,7 @@ const React = require('react');
 
 const Default = (html) => {
     return(
-        <html>
+        <html lang='en'>
             <head>
                 <metadata charset="utf-8" />
                 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
