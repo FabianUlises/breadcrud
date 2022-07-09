@@ -237,6 +237,9 @@ input:visited {
     background-color: #4ea69c71;
     color: white;
 }
+#form-submit-btn {
+    border-radius: 0px;
+}
 
 /* End of form page styles */
 /* Baker page */

@@ -29,7 +29,7 @@ function Edit ({bread, bakers}) {
               <input type="checkbox" name="hasGluten" id="hasGluten" defaultChecked={bread.hasGluten} />
             </div>
             <div className="form-group">
-              <input type="submit"/>
+              <input type="submit" id='form-submit-btn'/>
             </div>
           </form>
         </div>
