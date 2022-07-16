@@ -1,32 +1,13 @@
-const React = require('react')
-const Default = require('./default')
+const React = require('react');
+const Default = require('./default');
+const Content = require('./components/Baker_show');
 
 function Show ({baker}) {
     return (
       <Default>
-        <div className="wrapper baker-container">
-          <h2>{baker.name}</h2>
-          <p>{baker.name} has been baking with us since {baker.startDate}</p>
-          <p>About {baker.name}: {baker.bio}</p>
-          <br />
-          <h3 className='bakers-bread'>Breads {baker.name} has baked</h3>
-          <ul className='color-highlight bakers-bread'>
-            {
-              baker.breads.map((bread) => {
-                return(
-                  <li key={bread.id}>
-                    {bread.name}
-                  </li>  
-                )
-              })
-            }
-          </ul>
-          {/* <form action={`/bakers/${baker.id}?_method=DELETE`} method="POST">
-            <input type="submit" value="DELETE"/>
-          </form> */}
-        </div>
+        <Content baker={ baker } />
       </Default>
     )
-}
+};
 
-module.exports = Show
+module.exports = Show;
