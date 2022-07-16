@@ -1,5 +1,6 @@
 const React = require('react');
-const Header = require('./components/home-header');
+const Header = require('./components/Home_header');
+const Content = require('./components/Home_content');
 
 const Default = (html) => {
     return(
@@ -13,16 +14,11 @@ const Default = (html) => {
                 <title>BreadCrud</title>
             </head>
             <body>
-
-
-                {/* Site wrapper */}
-                <div>
-                    {/* <div className="content-wrapper wrapper"> */}
-                        {html.children}
-                    {/* </div> */}
-                </div>
+                {/* Header component */}
+                <Header />
+                <Content />
             </body>
         </html>
     )
-}
+};
 module.exports = Default;

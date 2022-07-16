@@ -36,4 +36,4 @@ const Home_header = () => {
   )
 }
 
-module.exports = Home-header;
+module.exports = Home_header;
