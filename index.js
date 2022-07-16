@@ -32,7 +32,7 @@ app.use('/bakers', require('./routes/bakers_router'));
 app.get('/', (req, res) => {
     res.status(200).render('welcomePage')
 });
-app.get('*', (req, res) => {
+app.all('*', (req, res) => {
     res.status(404).render('error');
 });
 
