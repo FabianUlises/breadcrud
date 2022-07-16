@@ -1,9 +1,6 @@
-const React = require('react')
-const Default = require('./default')
+const React = require('react');
+const Default = require('./default');
 const Content = require('./components/Add_bread');
-
-
-
 
 function New ({ bakers }) {
     return ( 
@@ -13,4 +10,4 @@ function New ({ bakers }) {
     )
 }
 
-module.exports = New
+module.exports = New;

@@ -1,5 +1,5 @@
-const React = require('react')
-const Default = require('./default')
+const React = require('react');
+const Default = require('./default');
 const Content = require('./components/Show_content');
 
 function Show ({bread}) {

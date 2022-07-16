@@ -1,5 +1,6 @@
 const React = require('react');
 const Default = require('./default');
+
 const Index = () => {
     return(
         <Default>

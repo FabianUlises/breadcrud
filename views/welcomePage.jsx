@@ -37,5 +37,5 @@ const welcomePage = () => {
             </body>
         </html>
     )
-}
+};
 module.exports = welcomePage;
