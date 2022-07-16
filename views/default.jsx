@@ -16,7 +16,7 @@ const Default = (html) => {
             <body>
                 {/* Header component */}
                 <Header />
-                <Content />
+                <Content html={html} />
             </body>
         </html>
     )

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Home_content = () => {
+const Home_content = ({ html }) => {
   return (
     <div>
       {/* Site wrapper */}
