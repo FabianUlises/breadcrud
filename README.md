@@ -1,4 +1,4 @@
-## Breadcrud is app made to demonstrate CRUD operations using serverside rendering for the front-end.
+## Breadcrud is an app made to demonstrate CRUD operations using serverside rendering for the front-end.
 <h5>Tech stack used:</h5>
 <ul>
   <li>git</li>
