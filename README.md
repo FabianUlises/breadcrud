@@ -1,4 +1,5 @@
 ## Breadcrud is an app made to demonstrate CRUD operations using serverside rendering for the front-end.
+#### Post new breads and edit or delete them. Form is using mongoose validation on the back-end.
 <h5>Tech stack used:</h5>
 <ul>
   <li>git</li>
