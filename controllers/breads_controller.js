@@ -5,7 +5,8 @@ const Baker = require('../models/baker');
 exports.getAllBreadsShow = async(req, res) => {
   try {
     const foundBakers = await Baker.find().lean();
-    const foundBreads = await Bread.find().limit(2).lean();
+    const foundBreads = await Bread.find();
+    // const foundBreads = await Bread.find().limit(2).lean();
     res.status(200).render('index', {
       breads: foundBreads,
       bakers: foundBakers,
