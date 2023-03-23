@@ -22,7 +22,8 @@ exports.getBreadShow = async (req, res) => {
   try {
     const bread = await Bread.findById(req.params.id).populate('baker');
     res.render('show', {
-      bread: bread
+      bread: bread,
+      title: 'An Emazing Bread'
     })
   }
   catch(err) {

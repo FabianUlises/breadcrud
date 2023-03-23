@@ -2,9 +2,9 @@ const React = require('react');
 const Default = require('./default');
 const Content = require('./components/Show_content');
 
-function Show ({bread}) {
+function Show ({bread, title}) {
     return (
-      <Default>
+      <Default title={title}>
         <Content bread={bread} />
       </Default>
     )

@@ -4,7 +4,7 @@ const welcomePage = () => {
     return(
         <html lang='en'>
             <head>
-                <meta charset="UTF-8" />
+                <meta charSet="UTF-8" />
                 <link rel="stylesheet" href="/welcome.css" />
                 <title>BreadCrud</title>
             </head>
