@@ -7,6 +7,7 @@
   <li>nodejs</li>
   <li>express-react-views</li>
   <li>mongodb</li>
+  <li>mongoose</li>
 </ul>
 <h5>Here area a list of available routes</h5>
 <ul>
