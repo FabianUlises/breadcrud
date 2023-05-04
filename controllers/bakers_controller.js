@@ -7,25 +7,25 @@ exports.getBakers = async (req, res) => {
         const bakers = await Baker.find().populate('breads');
         res.json(bakers);
     }
-    catch(err) {
+    catch (err) {
         res.status(404).render('error');
     }
 };
 
-exports.getBaker =  async (req, res) => {
+exports.getBaker = async (req, res) => {
     try {
         const baker = await Baker.findById(req.params.id)
-        .populate({
-            path: 'breads',
-            options: { limit: 2 }
-        });
+            .populate({
+                path: 'breads',
+                options: { limit: 2 }
+            });
         res.render('bakerShow', {
             baker: baker
         });
     }
-    catch(err) {
+    catch (err) {
         res.status(404).render('error');
-   }
+    }
 };
 
 
@@ -43,6 +43,6 @@ exports.seedData = async (req, res) => {
         res.status(404).json({
             status: 'fail',
             message: err
-        })
+        });
     }
 };
