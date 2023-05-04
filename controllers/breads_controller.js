@@ -69,13 +69,12 @@ exports.createBreadShow = async (req, res) => {
   }
 };
 // View to update bread
-exports.updateBreadShow = async (req, res) => {
+exports.updateBreadShow = async (req, res, next) => {
   try {
     // Getting bread and bakers from db
     const bread = await Bread.findById(req.params.id);
     const bakers = await Baker.find();
     // If no bread or baker throw error
-    // FIX: NEED TO ADD NEXT TO FUNCTION PARAMS
     if (!bread) {
       return next(new AppError('No bread found with that ID', 404));
     } else if (!bakers) {
@@ -109,12 +108,11 @@ exports.updateBread = async (req, res) => {
   }
 };
 // Delete a bread
-exports.deleteBread = async (req, res) => {
+exports.deleteBread = async (req, res, next) => {
   try {
     // Deleting bread from db using id from params
     const bread = await Bread.findByIdAndDelete(req.params.id);
     // If no bread throw error
-    // FIX: NEED TO ADD NEXT TO FUNCTION PARAMS
     if (!bread) {
       return next(new AppError('No bread found with that ID', 404));
     }
